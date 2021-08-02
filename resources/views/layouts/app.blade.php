@@ -3,6 +3,7 @@
 <head>
     <title>{{$title}} | Skawan</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+    {{$styles}}
 </head>
 <body>
     <x-navbar></x-navbar>

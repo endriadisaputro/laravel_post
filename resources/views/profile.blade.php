@@ -1,3 +1,3 @@
-<x-app-layout >
-	<h1>Profile Page</h1>
+<x-app-layout :title="$username ?? 'Profile'">
+	<h1>{{$username ?? 'Profile'}}</h1>
 </x-app-layout>
