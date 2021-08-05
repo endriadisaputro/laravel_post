@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>{{$title}} | Skawan</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     {{$styles}}
 </head>
 <body>
@@ -10,6 +10,6 @@
 
     {{$slot}}
 
-    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>
 </html>
