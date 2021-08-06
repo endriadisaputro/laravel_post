@@ -1,14 +1,7 @@
 <x-app-layout title="Task">
 	<div class="container">
 		<div class="card col-md-6 mt-4">
-			<div class="card-header">Create New Task</div>
-			<div class="card-body">
-				<form action="{{route('tasks.store')}}" method="post" class="d-flex">
-					@csrf
-					<input type="text" name="list" class="form-control me-2" placeholder="The name of the Task..">
-					<button type="submit" class="btn btn-primary">Add</button>
-				</form>
-			</div>
+			@include('tasks._create')
 		</div>
 		
 		<ul class="list-group col-md my-4">
