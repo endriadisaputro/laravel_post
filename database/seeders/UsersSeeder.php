@@ -14,25 +14,26 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
-    		[
-        	'name'=>'Skawan',
-        	'email'=>'skawan@gmail.com',
-        	'password'=> bcrypt('skawan'),
-        	'email_verified_at'=>now(),
+        User::factory()->count(10)->create();
+     //    $users = [
+    	// 	[
+     //    	'name'=>'Skawan',
+     //    	'email'=>'skawan@gmail.com',
+     //    	'password'=> bcrypt('skawan'),
+     //    	'email_verified_at'=>now(),
 
-        	],
-    		[
-        	'name'=>'Lovre',
-        	'email'=>'lovre@gmail.com',
-        	'password'=> bcrypt('lovre'),
-        	'email_verified_at'=>now(),
+     //    	],
+    	// 	[
+     //    	'name'=>'Lovre',
+     //    	'email'=>'lovre@gmail.com',
+     //    	'password'=> bcrypt('lovre'),
+     //    	'email_verified_at'=>now(),
 
-        	],
-    	];
+     //    	],
+    	// ];
         
-        foreach($users as $user){
-        	User::create($user);
-        }
+     //    foreach($users as $user){
+     //    	User::create($user);
+     //    }
     }
 }
