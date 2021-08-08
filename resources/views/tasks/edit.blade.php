@@ -6,8 +6,7 @@
 				<form action="{{route('tasks.update', $task->id)}}" method="post">
 					@method('put')
 					@csrf
-					<input type="text" name="list" class="form-control" value="{{$task->list}}">
-					<button type="submit" class="btn btn-primary mt-2">Update</button>
+					@include('tasks._form')
 				</form>
 			</div>
 		</div>
