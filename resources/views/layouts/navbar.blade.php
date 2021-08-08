@@ -23,21 +23,34 @@
             </ul>
           </li>
       </ul>
+
+
       <ul class="navbar-nav mb-2 mb-lg-0">
+        @guest
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('register')}}">Register</a>
+          </li>
 	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="{{route('register')}}">Register</a>
+	          <a class="nav-link active" aria-current="page" href="{{route('login')}}">Login</a>
 	        </li>
+          @else
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              {{Auth::user()->name}}
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li>
+                <form action="{{route('logout')}}" method="post">
+                  @csrf
+                  <button class="dropdown-item" type="submit">Logout</button>
+                </form>
+              </li>
             </ul>
           </li>
+          @endguest
       </ul>
     </div>
   </div>

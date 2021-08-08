@@ -7,15 +7,26 @@ use App\Http\Controllers\ProfileInformationController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
 Route::get('/', HomeController::class);
-Route::resource('tasks', TaskController::class);
-
-Route::get('register', [RegisterController::class, 'create'])->name('register');
-Route::post('register', [RegisterController::class, 'store'])->name('register');
-
 Route::get('users', [UserController::class, 'index']);
 Route::get('users/{user:username}', [UserController::class, 'show'])->name('users.show');
+
+Route::middleware('auth')->group(function(){
+	Route::resource('tasks', TaskController::class);
+	Route::post('logout', LogoutController::class)->name('logout');
+});
+
+Route::middleware('guest')->group(function(){
+	Route::get('register', [RegisterController::class, 'create'])->name('register');
+	Route::post('register', [RegisterController::class, 'store'])->name('register');
+
+	Route::get('login',[LoginController::class, 'create'])->name('login');
+	Route::post('login',[LoginController::class, 'store'])->name('login');	
+});
+
 
 // Route::get('contact', [ContactController::class, 'create']);
 // Route::post('contact', [ContactController::class, 'store']);
